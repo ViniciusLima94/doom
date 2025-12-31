@@ -167,6 +167,9 @@
 (map! :leader
       "io" #'my/insert-header-io)
 
+(setq leetcode-prefer-language "javascript")
+(setq leetcode-prefer-sql "mysql")
+
 (setq leetcode-save-solutions t)
 (setq leetcode-directory "~/leetcode")
 
@@ -212,7 +215,29 @@
   :init
   (global-corfu-mode))
 
-;; Yasnippet for snippets
-(use-package yasnippet
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font"
+                           :size 14))
+
+
+(use-package eglot
+  :ensure nil
+  :hook (python-mode . eglot-ensure))
+
+(use-package corfu
   :init
-  (yas-global-mode 1))
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)           ;; auto popup
+  (corfu-cycle t)          ;; cycle candidates
+  (corfu-preview-current t))
+
+(use-package eldoc
+  :ensure nil
+  :custom
+  (eldoc-echo-area-use-multiline-p t))
+
+
+;; in ~/.doom.d/config.el
+(use-package! pico8-mode
+  :mode "\\.n3$"
+  :mode "\\.ttl$")

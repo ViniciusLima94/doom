@@ -57,3 +57,8 @@
 (package! basic-mode)
 (package! buffer-move)
 (package! auto-complete)
+
+;; in ~/.doom.d/packages.el
+(package! pico8-mode
+  :recipe (:host github :repo "Kaali/pico8-mode"))
+
