@@ -62,3 +62,11 @@
 (package! pico8-mode
   :recipe (:host github :repo "Kaali/pico8-mode"))
 
+(straight-use-package
+ '(perltidy
+   :type git
+   :host github
+   :repo "rawleyfowler/tokyo-theme.el"
+   :branch "main"))
+
+(package! kind-icon)

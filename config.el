@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tokyo-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -241,3 +241,15 @@
 (use-package! pico8-mode
   :mode "\\.n3$"
   :mode "\\.ttl$")
+
+(setq company-format-margin-function #'company-vscode-dark-icons-margin)
+(after! company
+  (setq company-idle-delay 0.0
+        company-minimum-prefix-length 1))
+
+(use-package! kind-icon
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
